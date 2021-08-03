@@ -36,7 +36,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-focus-lock": "^2.4.1",
-    "react-globe": "^5.0.2",
     "react-headroom": "^3.0.0",
     "react-lottie": "^1.2.3",
     "react-particles-js": "^3.3.0",
@@ -51,8 +50,6 @@
     "react-typed": "^1.2.0",
     "react-waypoint": "^9.0.3",
     "styled-components": "^5.1.1",
-    "three": "^0.131.2",
-    "three.js": "^0.77.1",
     "tippy.js": "^6.2.6"
   },
   "scripts": {
