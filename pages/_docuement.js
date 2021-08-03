@@ -1,7 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
-class MyDocument extends Document {
+export default class MainDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
@@ -27,18 +27,16 @@ class MyDocument extends Document {
       sheet.seal();
     }
   }
-
   render() {
     return (
       <Html>
-        <Head></Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
+          <div id="modal-root"></div>
         </body>
       </Html>
     );
   }
 }
-
-export default MyDocument;
