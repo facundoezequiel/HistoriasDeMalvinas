@@ -3,13 +3,6 @@ import { CardIniciarSesionContainer } from "./styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAt, faLock } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
-import Logo from "@/components/uikit/logo";
-import Title from "@/components/uikit/title";
-import Paragraph from "@/components/uikit/paragraph";
-import Input from "@/components/uikit/input";
-import Button from "@/components/uikit/button";
-import ParagraphLink from "@/components/uikit/paragraphlink";
-import Image from "@/components/uikit/image";
 import { default as NextLink } from "next/link";
 import { auth } from "@/lib/firebase";
 import {
@@ -84,146 +77,96 @@ export default function CardInciarSesion() {
 
   return (
     <CardIniciarSesionContainer>
-      {/* Header Mobile */}
-      <div className="containerHeaderMobile">
-        {/* Logos Mobile */}
-        <Logo size="35" imageLink="./assets/logos/LogoHistoriasAzul.svg" />
-        <Logo
-          size="15"
-          imageLink="./assets/logos/IsologoDedicadoNegro.svg"
-        />
-      </div>
-      {/* Lado Derecho / Abajo */}
-      <div className="containerDiv1">
-        {/* Data container */}
-        <div className="containerDataDiv1">
+      {/* Left Container */}
+      <section id="leftContainer">
+        {/* Data Container */}
+        <div id="dataLeftContainer">
           {/* Logos */}
-          <div className="containerLogos">
-            <Logo size="35" imageLink="./assets/logos/LogoHistoriasAzul.svg" />
-            <Logo
-              size="15"
-              imageLink="./assets/logos/IsologoDedicadoNegro.svg"
+          <div id="logosLeftContainer">
+            <img
+              src="./assets/logos/LogoHistoriasAzul.svg"
+              alt="Logo Historias de Malvinas"
+              draggable="false"
+            />
+            <img
+              src="./assets/logos/IsologoDedicadoNegro.svg"
+              alt="Paz, Memoria y Justicia"
+              draggable="false"
+              id="dedicatedLogo"
             />
           </div>
-          {/* Titulo */}
-          <Title level={3} texto="Bienvenido" />
-          {/* Texto */}
-          <Paragraph design="registroCarta" size="0.8" text="Al usuario:" />
-          <Paragraph
-            design="registroCarta"
-            size="0.8"
-            text={[
-              "Historias de Malvinas, es un proyecto universitario y ",
-              <span>sin finas de lucro</span>,
-              " realizado por ",
-              <span>Facundo Brahim</span>,
-              " estudiante Lic. en Tecnología Multimedial de la Univ. Maimónides.",
-            ]}
-          />
-          <Paragraph
-            design="registroCarta"
-            size="0.8"
-            text={[
-              "Se busca crear una repositorio web participativo de historias sobre la ",
-              <span>Guerra de Malvinas</span>,
-              " y temas relacionados con la participación de excombatientes y/o familiares de los mismos/caidos.",
-            ]}
-          />
-          <Paragraph
-            design="registroCarta"
-            size="0.8"
-            text={[
-              "Así lograr una ",
-              <span>nueva forma de reclamo</span>,
-              " a traves de herramientas digitales ante la usurpación colonial e ilegal por parte Reino Unido en las Islas Malvinas e Islas del Atlántico Sur.",
-            ]}
-          />
-          <Image
-            imageLink="/assets/logos/Firma.svg"
-            size="25"
-            design="firmaRegistro"
+          {/* Title */}
+          <h3>Bienvenidx</h3>
+          {/* Text */}
+          <p>
+            <strong>Al usuario:</strong>
+            <br />
+            <br />
+            Historias de Malvinas, es un proyecto universitario y{" "}
+            <span>sin finas de lucro</span> realizado por{" "}
+            <span>Facundo Brahim</span> estudiante Lic. en Tecnología
+            Multimedial de la Univ. Maimónides.
+            <br />
+            <br />
+            Se busca crear una repositorio web participativo de historias sobre
+            la <span>Guerra de Malvinas</span> y temas relacionados con la
+            participación de excombatientes y/o familiares de los mismos/caidos.
+            <br />
+            <br />
+            Así lograr una <span>nueva forma de reclamo</span> a traves de
+            herramientas digitales ante la usurpación colonial e ilegal por
+            parte Reino Unido en las Islas Malvinas e Islas del Atlántico Sur.
+          </p>
+          {/* Signature */}
+          <img
+            src="./assets/logos/Firma.svg"
+            alt="Facundo Brahim firma"
+            draggable="false"
+            id="signature"
           />
         </div>
-      </div>
+      </section>
 
-      {/* Lado Izquierdo / Arriba */}
-      <div className="containerDiv2">
-        {/* Data container */}
-        <div className="containerDataDiv2 animate__animated animate__fadeIn">
-          {/* Titulo Mobile */}
-          <h3 id="tituloMobile">Bienvenido</h3>
-          {/* Texto */}
-          <Paragraph
-            size="0.8"
-            text="Por favor, complete los datos para poder inciar sesión"
-            design="registroCarta"
-          />
-          {/* Texto */}
-          <Paragraph
-            size="0.8"
-            text="Si acaba de registrarse, valide su identidad mediante el correo que le fue enviado para poder inicar sesión."
-            design="registroCarta"
-          />
-          {/* Formulario de registro */}
+      {/* Right Container */}
+      <section id="rightContainer">
+        {/* Data Container */}
+        <div id="dataRightContainer">
+          <p>
+            Por favor, complete los datos para poder inciar sesión
+            <br />
+            <br />
+            Si acaba de registrarse, valide su identidad mediante el correo quex
+            le fue enviado para poder inicar sesión.
+          </p>
+          {/* Login form */}
           <form onSubmit={(e) => handleSubmit(e)}>
-            {/* Input Correo electronico */}
-            <Input
-              icon={<FontAwesomeIcon icon={faAt} />}
-              text="Correo electrónico"
+            <input
               type="email"
-              design="iniciarSesion"
+              placeholder="Correo electrónico"
               onChange={(e) => handleChange("email", e.target.value)}
               value={formValue.email}
-              min={0}
               oninput="validity.valid || (value='');"
             />
-            {/* Input Contraseña */}
-            <Input
-              icon={<FontAwesomeIcon icon={faLock} />}
-              text="Contraseña"
+            <input
               type="password"
-              design="iniciarSesion"
+              placeholder="Contraseña"
               onChange={(e) => handleChange("password", e.target.value)}
               value={formValue.password}
             />
-            {/* Boton enviar datos */}
-            <Button
-              text="Iniciar Sesión"
-              type="submit"
-              backgroundColor="orange"
-              design="iniciarSesion"
-              design="registro"
-              className="buttonRegistro"
-            />
-            {/* Boton registrarse con facebook */}
-            <Button
-              text="Entrar con Facebook"
-              backgroundColor="blue"
-              design="registro"
-              icon={<FontAwesomeIcon icon={faFacebookSquare} />}
-            />
+            <button type="submit">Iniciar Sesión</button>
+            <button id="facebookButton">Entrar con Facebook</button>
           </form>
-          {/* Boton entrar como lector */}
           <NextLink href="/inicio">
-            <a>
-              <Button
-                text="Entrar como lector"
-                backgroundColor="grayDeg"
-                design="iniciarSesion"
-                design="registro"
-              />
-            </a>
+            <a id="lectorButton">Entrar como lector</a>
           </NextLink>
-          {/* Texto */}
-          <ParagraphLink
-            textLink="Registrarse"
-            buttonLink="/register"
-            size="0.8"
-            text="No tengo una cuenta. "
-            design="registroYaTengoCuenta"
-          ></ParagraphLink>
+          <p id="registerText">
+            ¿No tenes una cuenta?{" "}
+            <NextLink href="/register">
+              <a>Registrate acá</a>
+            </NextLink>
+          </p>
         </div>
-      </div>
+      </section>
     </CardIniciarSesionContainer>
   );
 }
