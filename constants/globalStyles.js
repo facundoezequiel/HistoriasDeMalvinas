@@ -59,7 +59,12 @@ const GlobalStyle = createGlobalStyle`
       color: var(--black);
       background: #02e3ff;
     }
-    
+
+    .tippy-tooltip.custom-theme {
+      background-color: white;
+      color: black;
+      font-size: 18px;
+    }
 `;
 
 export default GlobalStyle;

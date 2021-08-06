@@ -12,39 +12,34 @@ const CardIniciarSesionContainer = styled.section`
 
   // Left and right sections containers
 
-  #rightContainer,
   #leftContainer {
-    width: 50%;
+    min-width: 550px;
+    max-width: 550px;
     height: 100vh;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: #f5f8ff;
+    box-shadow: 1px 0px 50px rgba(0, 0, 0, 0.19);
+    z-index: 99;
+  }
+
+  #rightContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
     align-items: center;
     align-content: center;
     background-color: var(--gray);
   }
 
-  #rightContainer {
-    justify-content: flex-start;
-    background-color: var(--white);
-    content: "";
-  }
-
   // Left and right data containers
 
-  #dataLeftContainer,
-  #dataRightContainer {
+  #dataLeftContainer {
     width: 100%;
-    max-width: 500px;
-    margin: 0px 100px 0px 0px;
-  }
-
-  #dataRightContainer {
-    margin: 0px 0px 0px 100px !important;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    max-width: 350px;
   }
 
   /* ---- Left Section ---- */
@@ -60,20 +55,20 @@ const CardIniciarSesionContainer = styled.section`
   }
 
   #logosLeftContainer img {
-    max-width: 170px;
+    max-width: 130px;
     height: auto;
     display: block;
   }
 
   #dedicatedLogo {
-    max-width: 70px !important;
+    max-width: 50px !important;
   }
 
   // Title
 
   #dataLeftContainer h3 {
-    margin: 40px 0px 0px 0px;
-    font-size: 1.8em;
+    margin: 60px 0px 0px 0px;
+    font-size: 1.6em;
     font-style: normal;
     color: var(--black);
     font-family: var(--inter);
@@ -83,36 +78,10 @@ const CardIniciarSesionContainer = styled.section`
   // Text
 
   #dataLeftContainer p {
-    margin: 40px 0px 0px 0px;
-    font-size: 0.9em;
+    margin: 40px 0px 30px 0px;
+    font-size: 0.8em;
     font-style: normal;
-    color: var(--black);
-    font-family: var(--inter);
-    font-weight: 400;
-    line-height: 180%;
-  }
-
-  #dataLeftContainer p span {
-    color: var(--orange);
-  }
-
-  // Signature
-
-  #signature {
-    margin: 40px 80px 0px 0px;
-    width: 110px;
-    float: right;
-  }
-
-  /* ---- Right Section ---- */
-
-  // Text
-
-  #dataRightContainer p {
-    margin: 0px 0px 0px 0px;
-    font-size: 0.9em;
-    font-style: normal;
-    color: var(--black);
+    color: gray;
     font-family: var(--inter);
     font-weight: 400;
     line-height: 180%;
@@ -120,7 +89,7 @@ const CardIniciarSesionContainer = styled.section`
 
   // Form
 
-  #dataRightContainer form {
+  #dataLeftContainer form {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -129,28 +98,40 @@ const CardIniciarSesionContainer = styled.section`
     align-content: center;
   }
 
-  #dataRightContainer form input {
+  #dataLeftContainer form input {
     width: 100%;
     padding: 4% 5% 4% 5%;
-    margin: 40px 0px 0px 0px;
-    border: 0px;
-    background-color: var(--gray);
-    border-radius: 10px;
+    margin: 30px 0px 0px 0px;
+    border: 1px solid #e1e6f9;
+    background-color: #fff;
+    border-radius: 8px;
+    transition: 0.2s all;
   }
 
-  #dataRightContainer form input::placeholder {
-    font-size: 1em;
+  #dataLeftContainer form input::placeholder {
+    font-size: 0.9em;
     font-style: normal;
-    color: var(--black);
+    color: gray;
     font-family: var(--inter);
     font-weight: 400;
     line-height: 180%;
   }
 
-  #dataRightContainer form button {
+  #dataLeftContainer form input:focus {
+    border: 1px solid #275efe;
+  }
+
+  #buttonsContainer {
     width: 60%;
-    padding: 3% 5% 3% 5%;
-    margin: 30px 0px 0px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  #submitButton {
+    width: 100%;
+    padding: 6% 5% 6% 5%;
+    margin: 60px 0px 0px 0px;
     font-family: var(--inter);
     font-size: 0.9em;
     font-weight: 700;
@@ -176,6 +157,7 @@ const CardIniciarSesionContainer = styled.section`
   }
 
   #facebookButton {
+    margin: 20px 0px 0px 0px !important;
     background: #105cff !important;
     background: -moz-linear-gradient(45deg, #105cff 0%, #05cdff 100%);
     background: -webkit-gradient(
@@ -192,16 +174,11 @@ const CardIniciarSesionContainer = styled.section`
   }
 
   #lectorButton {
-    width: 60%;
-    padding: 3% 0% 3% 0%;
-    margin: 30px 0px 0px 0px;
-    font-family: var(--inter);
-    font-size: 0.9em;
-    font-weight: 700;
-    text-align: center;
+    width: 100%;
+    padding: 6% 5% 6% 5%;
+    margin: 20px 0px 0px 0px;
     border-radius: 10px;
-    color: var(--black);
-    text-decoration: none;
+    border: 0px;
     transition: 0.2s;
     background: rgba(163, 163, 163, 1);
     background: -moz-linear-gradient(
@@ -238,8 +215,17 @@ const CardIniciarSesionContainer = styled.section`
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a3a3a3', endColorstr='#ebebeb', GradientType=1 );
   }
 
+  #lectorButton a {
+    text-decoration: none;
+    color: var(--black);
+    font-family: var(--inter);
+    font-size: 1em;
+    font-weight: 700;
+    text-align: center;
+  }
+
   #registerText {
-    margin: 30px 0px 0px 0px !important;
+    margin: 60px 0px 0px 0px !important;
     font-family: var(--inter);
     font-size: 0.9em;
     font-weight: 400;
@@ -251,11 +237,16 @@ const CardIniciarSesionContainer = styled.section`
     color: var(--orange);
     font-weight: 700;
     text-decoration: none;
+    transition: 0.2s all;
   }
 
-  #dataRightContainer form button:hover,
+  #registerText a:hover {
+    color: gray;
+  }
+
+  #dataLeftContainer form button:hover,
   #lectorButton:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
 `;
 

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import { CardIniciarSesionContainer } from "./styled";
+import Tippy from "@tippyjs/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAt, faLock } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
@@ -12,6 +14,7 @@ import {
 } from "@/lib/userCookies";
 import { mapUserData } from "@/lib/mapUserData";
 import { useRouter } from "next/router";
+import Color from "color-js";
 
 export default function CardInciarSesion() {
   const router = useRouter();
@@ -35,7 +38,7 @@ export default function CardInciarSesion() {
   };
 
   // Recibe el mail y la contraseña que le estoy pasando e inica sesion con esos datos
-  // rEGISTRO seria la funcion signUp adentro antes de los parentesis tendria un async y dentro pongo la funcion de acios
+  // Registro seria la funcion signUp adentro antes de los parentesis tendria un async y dentro pongo la funcion de acios
   const login = ({ email, password }) => {
     auth
       .signInWithEmailAndPassword(email, password)
@@ -75,6 +78,17 @@ export default function CardInciarSesion() {
     };
   }, []);
 
+  // Tooltip Lectura Button
+  const TooltipLectura = styled(Tippy)`
+    background: white;
+    color: gray;
+    border: 1px solid #e1e6f9;
+    font-family: var(--inter);
+    font-size: 0.75em;
+    font-weight: 400;
+    text-align: center;
+  `;
+
   return (
     <CardIniciarSesionContainer>
       {/* Left Container */}
@@ -99,6 +113,61 @@ export default function CardInciarSesion() {
           <h3>Bienvenidx</h3>
           {/* Text */}
           <p>
+            Por favor, complete los datos para poder inciar sesión
+            <br />
+            <br />
+            <span>
+              Si acaba de registrarse, valide su identidad mediante el correo
+              que le fue enviado para poder inicar sesión.
+            </span>
+          </p>
+          {/* Login form */}
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <input
+              type="email"
+              placeholder="Correo electrónico"
+              onChange={(e) => handleChange("email", e.target.value)}
+              value={formValue.email}
+              oninput="validity.valid || (value='');"
+            />
+            <input
+              type="password"
+              placeholder="Contraseña"
+              onChange={(e) => handleChange("password", e.target.value)}
+              value={formValue.password}
+            />
+            <div id="buttonsContainer">
+              <button type="submit" id="submitButton">
+                Iniciar Sesión
+              </button>
+              {/* <button id="facebookButton">Entrar con Facebook</button> */}
+              <TooltipLectura
+                content="Solo podrá leer historias"
+                arrow={false}
+                placement="bottom"
+              >
+                <button id="lectorButton">
+                  <NextLink href="/inicio">
+                    <a>Entrar como lector</a>
+                  </NextLink>
+                </button>
+              </TooltipLectura>
+            </div>
+          </form>
+          <p id="registerText">
+            ¿No tenes una cuenta?{" "}
+            <NextLink href="/register">
+              <a>Registrate acá</a>
+            </NextLink>
+          </p>
+        </div>
+      </section>
+
+      {/* Right Container */}
+      <section id="rightContainer">
+        {/* Data Container */}
+        <div id="dataRightContainer">
+          <p>
             <strong>Al usuario:</strong>
             <br />
             <br />
@@ -117,54 +186,13 @@ export default function CardInciarSesion() {
             herramientas digitales ante la usurpación colonial e ilegal por
             parte Reino Unido en las Islas Malvinas e Islas del Atlántico Sur.
           </p>
-          {/* Signature */}
+          {/* Signature 
           <img
             src="./assets/logos/Firma.svg"
             alt="Facundo Brahim firma"
             draggable="false"
             id="signature"
-          />
-        </div>
-      </section>
-
-      {/* Right Container */}
-      <section id="rightContainer">
-        {/* Data Container */}
-        <div id="dataRightContainer">
-          <p>
-            Por favor, complete los datos para poder inciar sesión
-            <br />
-            <br />
-            Si acaba de registrarse, valide su identidad mediante el correo quex
-            le fue enviado para poder inicar sesión.
-          </p>
-          {/* Login form */}
-          <form onSubmit={(e) => handleSubmit(e)}>
-            <input
-              type="email"
-              placeholder="Correo electrónico"
-              onChange={(e) => handleChange("email", e.target.value)}
-              value={formValue.email}
-              oninput="validity.valid || (value='');"
-            />
-            <input
-              type="password"
-              placeholder="Contraseña"
-              onChange={(e) => handleChange("password", e.target.value)}
-              value={formValue.password}
-            />
-            <button type="submit">Iniciar Sesión</button>
-            <button id="facebookButton">Entrar con Facebook</button>
-          </form>
-          <NextLink href="/inicio">
-            <a id="lectorButton">Entrar como lector</a>
-          </NextLink>
-          <p id="registerText">
-            ¿No tenes una cuenta?{" "}
-            <NextLink href="/register">
-              <a>Registrate acá</a>
-            </NextLink>
-          </p>
+          /> */}
         </div>
       </section>
     </CardIniciarSesionContainer>

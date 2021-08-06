@@ -13,6 +13,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@tippyjs/react": "^4.2.5",
     "@uiw/react-md-editor": "^1.14.5",
     "@vercel/client": "^9.0.3",
     "@zeit/next-css": "^1.0.1",
@@ -50,7 +51,7 @@
     "react-typed": "^1.2.0",
     "react-waypoint": "^9.0.3",
     "styled-components": "^5.1.1",
-    "tippy.js": "^6.2.6"
+    "tippy.js": "^6.3.1"
   },
   "scripts": {
     "dev": "next dev",
