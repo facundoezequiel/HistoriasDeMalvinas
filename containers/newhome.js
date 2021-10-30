@@ -1,6 +1,7 @@
-import React from "react";
+import react from "react";
 import styled from "styled-components";
 import ReactTyped from "react-typed";
+import Colonias from "../components/home/colonias/colonias";
 
 const HomeContainer = styled.section`
   width: 100%;
@@ -10,6 +11,18 @@ const HomeContainer = styled.section`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+`;
+
+const NoiseBackground = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0.04;
 `;
 
 const Header = styled.header`
@@ -69,20 +82,17 @@ const ImagesContainer = styled.div`
   min-height: 675px;
   position: relative;
 
-  #soldadosImg {
-    position: absolute;
-    top: 10px;
-    right: 0px;
-    width: auto;
-    z-index: 99;
-  }
-
   video {
     position: absolute;
     top: 10px;
     right: 0px;
     width: auto;
     z-index: 99;
+    transition: 0.4s;
+  }
+
+  video:hover {
+    transform: scale(1.04);
   }
 
   #pinturaImg {
@@ -90,6 +100,33 @@ const ImagesContainer = styled.div`
     bottom: 0px;
     left: 0px;
     width: auto;
+    transition: 0.4s;
+  }
+
+  #pinturaImg:hover {
+    transform: scale(1.04);
+  }
+`;
+
+const PlanetContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1648px;
+
+  #planetText {
+    width: 50%;
+
+    h2 {
+      width: 100%;
+      color: black;
+      font-weight: 700;
+      text-align: left;
+      font-size: 46px;
+      line-height: 120%;
+      font-family: var(--poppins);
+    }
   }
 `;
 
@@ -105,6 +142,9 @@ export default function NewHome() {
           />
         </div>
       </Header>
+      <NoiseBackground
+        style={{ backgroundImage: "url(/assets/images/noise.gif)" }}
+      ></NoiseBackground>
       <HomeContainer>
         <TitleContainer>
           <h1>
@@ -118,8 +158,8 @@ export default function NewHome() {
                 "madres.",
                 "pibes.",
               ]}
-              typeSpeed={50}
-              backSpeed={50}
+              typeSpeed={60}
+              backSpeed={60}
               backDelay={3500}
               showCursor={false}
               loop
@@ -149,6 +189,7 @@ export default function NewHome() {
             id="pinturaImg"
           />
         </ImagesContainer>
+        <Colonias />
       </HomeContainer>
     </>
   );
