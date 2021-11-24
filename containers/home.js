@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import HomeSearch from "@/components/general/home/homesearch";
-import HomeProyecto from "@/components/general/home/homeproyecto";
+import HomeProyecto from "@/components/home/proyecto";
 import HomeGuerra from "@/components/general/home/homeguerra";
 import HomeActualidad from "@/components/general/home/homeactualidad";
 import HomeGrid from "@/components/general/home/homegrid";

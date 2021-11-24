@@ -15,7 +15,7 @@ class LogoAnimationLottie extends Component {
     };
     return (
       <div>
-        <Lottie options={animationOptions} height={450} width={450} />
+        <Lottie options={animationOptions} height={370} width={370} />
       </div>
     );
   }
