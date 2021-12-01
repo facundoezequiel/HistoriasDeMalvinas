@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 /* Principal container */
 const Container = styled.div`
-  width: 60%;
+  width: 100%;
+  max-width: 1340px;
   background-color: var(--white);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 70px 0px 0px 0px;
+  margin: 70px 0px 70px 0px;
   align-items: center;
 
   // Titulo y texto Container

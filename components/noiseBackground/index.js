@@ -11,6 +11,7 @@ const Container = styled.div`
   z-index: 1000;
   pointer-events: none;
   opacity: 0.04;
+  display: none;
 `;
 
 export default function NoiseBackground() {

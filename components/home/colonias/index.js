@@ -28,15 +28,11 @@ export default class Colonias extends React.Component {
   render() {
     return (
       <Container>
-        {/* Lado Izquierda */}
-        <div id="leftContainer">
           <h2>Basta de imperialismo</h2>
           <p>Colonias Británicas</p>
           <ChangePlanetMenu
             togglePlanets={this.togglePlanets}
           ></ChangePlanetMenu>
-        </div>
-        {/* Lado derecha */}
         <div id="rightContainer">{this.getPlanet(this.state.currentMode)}</div>
       </Container>
     );

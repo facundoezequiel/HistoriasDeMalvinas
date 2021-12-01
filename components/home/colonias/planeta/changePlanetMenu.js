@@ -28,6 +28,7 @@ const PlanetButton = styled.button`
   -webkit-border-radius: 200px 200px 200px 200px;
   border: 0px;
   background-color: #262626;
+  z-index: 99;
 
   @keyframes changeBackground {
     from {
